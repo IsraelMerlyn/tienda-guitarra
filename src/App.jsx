@@ -3,7 +3,8 @@ import { Header } from "./components/Header";
 import { Guitar } from "./components/Guitar";
 import { db } from "./data/db";
 import { Footer_pages } from "./components/Footer_pages";
-
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.css";
 
 export const App = () => {
   
@@ -31,7 +32,25 @@ export const App = () => {
   
 
   function removeToCart (id) {
-    setCart(prevCart => prevCart.filter(guitar => guitar.id !== id))
+  
+    Swal.fire({
+      title: "Estas seguro que deseas elimnar?",
+      text: "el registro  se eliminara del carrito!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, eliminar!",
+      cancelButtonText: "cancelar",
+    }).then( (result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Eliminado!", "Registro eliminado con exito", "success");
+            setCart(prevCart => prevCart.filter(guitar => guitar.id !== id))
+
+          }
+    
+
+    })
     
   }
 
@@ -63,7 +82,27 @@ function decreaseQuantity(id) {
 }
 
 function clearCart() {
-  setCart([])
+
+  
+  Swal.fire({
+    title: "Estas seguro que deseas vaciar el carrito?",
+    text: "",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, eliminar!",
+    cancelButtonText: "cancelar",
+  }).then( (result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Eliminado!", "Se ha vaciado el carrito", "success");
+          setCart([])
+
+
+        }
+  
+
+  })
 }
 
   return (
