@@ -62,6 +62,10 @@ function decreaseQuantity(id) {
   setCart(updatedCart)
 }
 
+function clearCart() {
+  setCart([])
+}
+
   return (
     <>
       <Header 
@@ -69,6 +73,7 @@ function decreaseQuantity(id) {
         removeToCart={removeToCart}
         increaseQuantity={increaseQuantity}
         decreaseQuantity={decreaseQuantity}
+        clearCart= {clearCart}
       />
 
       <main className="container-xl mt-5">
