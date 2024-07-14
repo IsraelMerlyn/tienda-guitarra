@@ -9,8 +9,17 @@ export const App = () => {
   
    
   const [data, setData] = useState(db);
+  const [cart, setCart] = useState([]);
 
-  console.log(db)
+ 
+  function addToCart(item) {
+    //usestate inmutabilidad()
+    const itemExists = cart.findIndex(guitar=> guitar.id == item.id)
+
+    console.log(itemExists);
+    setCart(prevCart => [...prevCart, item])
+
+  }
 
   return (
     <>
@@ -24,7 +33,13 @@ export const App = () => {
           {
             data.map((guitar)=> 
               (
-                <Guitar key={guitar.id} guitar={guitar}  />
+                <Guitar 
+                  key={guitar.id} 
+                  guitar={guitar} 
+                  setCart={setCart}
+                  addToCart = {addToCart}
+                  
+                 />
               )
             )
           }
