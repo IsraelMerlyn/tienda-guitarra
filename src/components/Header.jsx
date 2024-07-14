@@ -1,7 +1,7 @@
 import React from "react";
 import { Guitar } from "./Guitar";
 import { useMemo } from "react"; 
-export const Header = ({ cart , removeToCart}) => {
+export const Header = ({ cart , removeToCart,increaseQuantity,decreaseQuantity}) => {
 
   //state Derivado
   const isEmpty =useMemo(()=> cart.length === 0, [cart] );
@@ -58,11 +58,13 @@ export const Header = ({ cart , removeToCart}) => {
                               <td>{guitar.name}</td>
                               <td className="fw-bold">${guitar.price}</td>
                               <td className="flex align-items-start gap-4">
-                                <button type="button" className="btn btn-dark">
+                                <button onClick={() => decreaseQuantity(guitar.id)} type="button" className="btn btn-dark">
                                   -
                                 </button>
                                 {guitar.quantity}
-                                <button type="button" className="btn btn-dark">
+                                <button
+                                 onClick={() =>increaseQuantity(guitar.id)} 
+                                 type="button" className="btn btn-dark">
                                   +
                                 </button>
                               </td>
