@@ -26,7 +26,12 @@ export const Header = ({ cart }) => {
                 />
 
                 <div id="carrito" className="bg-white p-3">
-                  <p className="text-center">El carrito esta vacio</p>
+
+                  {
+                    cart.length == 0 ? (
+                      <p className="text-center">El carrito esta vacio</p>
+                    ) : (
+                   
                   <table className="w-100 table">
                     <thead>
                       <tr>
@@ -67,7 +72,7 @@ export const Header = ({ cart }) => {
                       ))}
                     </tbody>
                   </table>
-
+ )}
                   <p className="text-end">
                     Total pagar: <span className="fw-bold">$899</span>
                   </p>
