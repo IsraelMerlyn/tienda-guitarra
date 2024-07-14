@@ -13,7 +13,10 @@ export const App = () => {
 
  
   function addToCart(item) {
-    console.log('agregando ...');
+    //usestate inmutabilidad()
+    const itemExists = cart.findIndex(guitar=> guitar.id == item.id)
+
+    console.log(itemExists);
     setCart(prevCart => [...prevCart, item])
 
   }
