@@ -9,8 +9,14 @@ export const App = () => {
   
    
   const [data, setData] = useState(db);
+  const [cart, setCart] = useState([]);
 
-  console.log(db)
+ 
+  function addToCart(item) {
+    console.log('agregando ...');
+    setCart(prevCart => [...prevCart, item])
+
+  }
 
   return (
     <>
@@ -24,7 +30,13 @@ export const App = () => {
           {
             data.map((guitar)=> 
               (
-                <Guitar key={guitar.id} guitar={guitar}  />
+                <Guitar 
+                  key={guitar.id} 
+                  guitar={guitar} 
+                  setCart={setCart}
+                  addToCart = {addToCart}
+                  
+                 />
               )
             )
           }

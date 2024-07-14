@@ -1,12 +1,12 @@
 import React from "react";
 
-export const Guitar = ({guitar}) => {
+export const Guitar = ({guitar, addToCart}) => {
 
   const {id,name, image, description, price} = guitar;
 
-  const handleClick = (id) => {
-    console.log('click', id)
-  }
+  // const handleClick = (guitar) => {
+  //   setCart([...cart ,guitar]);
+  // }
 
   return (
     <>
@@ -25,7 +25,7 @@ export const Guitar = ({guitar}) => {
           </p>
           <p className="fw-black text-primary fs-3">${price} </p>
           
-          <button onClick={() => handleClick (id)} type="button" className="btn btn-dark w-100">
+          <button onClick={() => addToCart(guitar)} type="button" className="btn btn-dark w-100">
             Agregar al Carrito
           </button>
         </div>
