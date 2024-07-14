@@ -1,7 +1,8 @@
 import React from "react";
 import { Guitar } from "./Guitar";
 import { useMemo } from "react"; 
-export const Header = ({ cart }) => {
+export const Header = ({ cart , removeToCart}) => {
+
   //state Derivado
   const isEmpty =useMemo(()=> cart.length === 0, [cart] );
 
@@ -69,6 +70,7 @@ export const Header = ({ cart }) => {
                                 <button
                                   className="btn btn-danger"
                                   type="button"
+                                  onClick={() => removeToCart(guitar.id)}
                                 >
                                   X
                                 </button>
