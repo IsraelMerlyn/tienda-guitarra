@@ -26,7 +26,7 @@ export const Header = ({ cart , removeToCart,increaseQuantity,decreaseQuantity,c
               <div className="carrito">
                 <img
                   className="img-fluid"
-                  src="./public/img/carrito.png"
+                  src={`/img/carrito.png`}
                   alt="imagen carrito"
                 />
 
